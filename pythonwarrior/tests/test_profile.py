@@ -102,7 +102,7 @@ class TestProfileWithTowerPath(unittest.TestCase):
                 self.profile.save()
                 f.write.assert_called_once_with('encoded_profile')
                 mock_open.assert_called_once_with(self.profile._player_path +
-                                                  '/.profile', 'w')
+                                                  '/.profile', 'wb')
 
     def test_should_have_a_nice_string_representation(self):
         self.profile.warrior_name = "Joe"

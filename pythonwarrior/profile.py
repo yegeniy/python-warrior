@@ -30,7 +30,7 @@ class Profile(object):
         self.update_epic_score()
         if self.epic:
             self.level_number = 0
-        f = open(self.player_path + '/.profile', 'w')
+        f = open(self.player_path + '/.profile', 'wb')
         f.write(self.encode())
 
     @staticmethod

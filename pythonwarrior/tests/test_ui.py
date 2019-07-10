@@ -38,7 +38,7 @@ class TestUI(unittest.TestCase):
         self.in_stream.write("bar")
         self.in_stream.seek(0)
         self.assertEqual(self.ui.request("foo"), "bar")
-        self.assertEqual(self.out_stream.getvalue(), "foo")
+        self.assertEqual(self.out_stream.getvalue(), "foo\n")
 
     @mock.patch('pythonwarrior.ui.UI.request')
     def test_should_ask_for_yes_no_and_return_true_when_yes(self, mock_req):

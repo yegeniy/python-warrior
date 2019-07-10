@@ -33,7 +33,7 @@ class Warrior(UnitBase):
 
     def earn_points(self, points):
         self.score = self.score + points
-        print "earns %d points" % points
+        print("earns %d points" % points)
 
     @property
     def attack_power(self):

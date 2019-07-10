@@ -8,10 +8,10 @@ class TestSludge(unittest.TestCase):
         self.sludge = Sludge()
 
     def test_should_have_attack_action(self):
-        self.assertIn('attack_', self.sludge.abilities.keys())
+        self.assertIn('attack_', list(self.sludge.abilities.keys()))
 
     def test_should_have_feel_sense(self):
-        self.assertIn('feel', self.sludge.abilities.keys())
+        self.assertIn('feel', list(self.sludge.abilities.keys()))
 
     def test_should_have_attack_of_3(self):
         self.assertEqual(self.sludge.attack_power, 3)

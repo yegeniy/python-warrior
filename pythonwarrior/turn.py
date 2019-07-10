@@ -6,7 +6,7 @@ class Turn(object):
         self.action = None
         self.senses = {}
 
-        for name, sense in abilities.iteritems():
+        for name, sense in abilities.items():
             if name.endswith("_"):
                 self.add_action(name)
             else:

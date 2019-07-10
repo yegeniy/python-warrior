@@ -107,7 +107,7 @@ class UnitBase(object):
 
     def perform_turn(self):
         if self.position:
-            for ability in self.abilities.values():
+            for ability in list(self.abilities.values()):
                 ability.pass_turn()
             if self.current_turn.action and not self.is_bound():
                 name = self.current_turn.action[0]

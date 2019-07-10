@@ -97,7 +97,7 @@ class Level(object):
             UI.puts('Total Score: %s' %
                     self.score_calculation(self.profile.score, score))
             self.profile.score += score
-            self.profile.abilities = self.warrior.abilities.keys()
+            self.profile.abilities = list(self.warrior.abilities.keys())
 
     def grade_for(self, score):
         if self.ace_score:

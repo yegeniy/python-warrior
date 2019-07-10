@@ -34,7 +34,7 @@ class TestProfile(unittest.TestCase):
         self.assertEqual(Profile.decode(self.profile.encode()).warrior_name,
                          self.profile.warrior_name)
 
-    @mock.patch('__builtin__.open')
+    @mock.patch('builtins.open')
     def test_load_should_read_file_decode_and_set_player_path(self, mock_open):
         profile = mock.Mock()
         mock_open.read.return_value = "encoded_profile"
@@ -45,7 +45,7 @@ class TestProfile(unittest.TestCase):
 
     def test_should_add_abilities_and_remove_duplicates(self):
         self.profile.add_abilities('foo', 'bar', 'blah', 'bar')
-        self.assertItemsEqual(self.profile.abilities, ['foo', 'bar', 'blah'])
+        self.assertSetEqual(set(self.profile.abilities), {'foo', 'bar', 'blah'})
 
     def test_should_fetch_new_level_with_current_number(self):
         self.profile.level_number = 1
@@ -94,7 +94,7 @@ class TestProfileWithTowerPath(unittest.TestCase):
         self.profile.tower_path = "path/to/tower"
 
     def test_save_should_write_file_with_encoded_profile(self):
-        with mock.patch('__builtin__.open') as mock_open:
+        with mock.patch('builtins.open') as mock_open:
             with mock.patch.object(self.profile, 'encode',
                                    return_value='encoded_profile'):
                 f = mock.Mock()

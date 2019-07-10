@@ -3,7 +3,7 @@ import unittest
 
 from pythonwarrior.config import Config
 from pythonwarrior.ui import UI
-from io import BytesIO
+from io import StringIO
 
 
 class TestUI(unittest.TestCase):
@@ -11,8 +11,8 @@ class TestUI(unittest.TestCase):
         self.ui = UI()
         self.config = Config
         self.config.delay = None
-        self.out_stream = BytesIO()
-        self.in_stream = BytesIO()
+        self.out_stream = StringIO()
+        self.in_stream = StringIO()
         self.config.out_stream = self.out_stream
         self.config.in_stream = self.in_stream
 

@@ -43,7 +43,7 @@ class TestLevel(unittest.TestCase):
                                return_value='path/to/level.py'):
             mock_file = mock.Mock(
                 read=mock.Mock(return_value="level.description('foo')"))
-            with mock.patch('__builtin__.open',
+            with mock.patch('builtins.open',
                             return_value=mock_file):
                 self.level.load_level()
                 self.assertEqual(self.level.description, 'foo')

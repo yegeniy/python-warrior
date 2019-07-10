@@ -13,7 +13,7 @@ Tip: {{level.tip}}
 
 
 Warrior Abilities:
-{% for name, ability in level.warrior.abilities.iteritems() %}
+{% for name, ability in level.warrior.abilities.items() %}
 
   warrior.{{name}}
     {{ability.description()}}
@@ -22,7 +22,7 @@ Warrior Abilities:
 
 
 Golem Abilities:
-{% for name, ability in level.warrior.base_golem.abilities.iteritems() %}
+{% for name, ability in level.warrior.base_golem.abilities.items() %}
 
   golem.{{name}}
     {{ability.description()}}

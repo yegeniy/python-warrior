@@ -4,6 +4,8 @@ import random
 DEBUG = False
 DEBUG = True
 """
+time ./bin/pythonwarrior -d pythonwarrior/yeg-beginner -t 0
+
 Success! You have found the stairs.
 Level Score: 12
 Time Bonus: 0

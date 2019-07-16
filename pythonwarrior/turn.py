@@ -5,6 +5,7 @@ class Turn(object):
     def __init__(self, abilities):
         self.action = None
         self.senses = {}
+        self.abilities = abilities
 
         for name, sense in abilities.items():
             if name.endswith("_"):

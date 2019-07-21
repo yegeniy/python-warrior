@@ -4,7 +4,7 @@ import uuid
 import os
 
 DEBUG = False
-DEBUG = True
+# DEBUG = True
 """
 time ./bin/pythonwarrior -d pythonwarrior/yeg-intermediate -t 0
 
@@ -37,8 +37,8 @@ class DecideRandomly:
 
 class FollowGivenLog:
   FNAME = f"{os.getcwd()}/logs/25b14abd289c4c96a8d8fe920d876bdb_29"
+  
   def __init__(self):
-  # if DEBUG:
     self.actions = []
     with open(FollowGivenLog.FNAME) as l:
       for line in l.readlines():
@@ -48,10 +48,8 @@ class FollowGivenLog:
           self.actions.append(a_r.split(" ")[0])
     self.i = 0
     if DEBUG: print(self.actions)
+
   def decide(self, turn: Turn):
-    # with open(FollowGivenLog.FNAME) as l:
-      # turns = l.readlines()
-      # a = turns[self.turn_ct-1].split(" : ")[1].split(",")[-1].split(" ")[1]
     a = self.actions[self.i]
     # print(a)
     self.i += 1
@@ -67,7 +65,7 @@ class Player(DecideRandomly):
     super(Player, self).__init__()
     self.turn_ct = 1
     self.fname = f"{os.getcwd()}/logs/{uuid.uuid4().hex}"
-    print(self.fname)
+    if DEBUG: print(self.fname)
     # self.log(f"Turn {self.turn_ct} : ")
 
   def play_turn(self, i: Turn):

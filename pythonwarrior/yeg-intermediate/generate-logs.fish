@@ -9,7 +9,7 @@ for logs in $warrior/logs
   for i in (seq 1 10000);
     set -l result ($pwdir/bin/pythonwarrior -d $warrior -s -t0 2>&1 | tail -n 1);
     set -l score (switch '"'$result'"';
-      case '*Total Score: *'; echo $result | cut -d: -f 2 | cut -c 2-; 
+      case '*Total Score: *'; echo $result | rev | cut -d' ' -f1 | rev; 
       case '*Sorry*'; echo -1; 
       case '*Exception*'; echo -10; 
       case '*'; echo -10; end)
